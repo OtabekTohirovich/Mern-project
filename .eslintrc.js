@@ -1,4 +1,4 @@
-/* eslint-env node */
+// /* eslint-env node */
 
 module.exports = {
   root: true,
@@ -23,5 +23,6 @@ module.exports = {
       { allowConstantExport: true },
     ],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    "@typescript-eslint/no-unsafe-member-access": "error",
   },
 }
