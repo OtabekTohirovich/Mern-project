@@ -69,9 +69,9 @@ function Rating(props: {
       </span>
       
       {caption ? (
-        <span>{caption}</span>
+        <span >{caption}</span>
       ) : numReview != 0 ? (
-        <span>{" " + numReview + "reviews"}</span>
+        <span style={{color: '#e67221'}} >{" " + numReview + "reviews"}</span>
       ) : (
         ""
       )}

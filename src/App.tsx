@@ -1,7 +1,16 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
+import { Store } from "./Store";
+import { useContext, useEffect } from "react";
 
 function App() {
+  const {
+    state: { mode },
+    dispatch,
+  } = useContext(Store);
+  useEffect(() => {
+    document.body.setAttribute("data-bs-theme", mode);
+  }, [mode]);
   return (
     <div className="d-flex, flex-column vh-full">
       <header>
@@ -21,7 +30,7 @@ function App() {
       </header>
       <main>
         <Container className="mt-3">
-          <Outlet/>
+          <Outlet />
         </Container>
       </main>
       <footer>
