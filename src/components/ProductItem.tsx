@@ -17,19 +17,37 @@ function ProductItem({ product }: { product: Product }) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
     if (product.countInStock < quantity) {
-      toast.warn("Sorry, Product is out of stock");
+      toast.warn("Sorry, Product is out of stock",{
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       return;
     }
     dispatch({
       type: "CART_ADD_ITEM",
       payload: { ...item, quantity },
     });
-    toast.success("Product added to the cart");
+    toast.success("Product added to the cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   };
   return (
-    <Card>
+    <Card style={{overflow: 'hidden', marginBottom: '10px'}}>
       <Link to={"/product/" + product.slug}>
-        <img className="product-image" src={product.image} alt="das" />
+        <img className="product-image " src={product.image} alt="das" />
       </Link>
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>

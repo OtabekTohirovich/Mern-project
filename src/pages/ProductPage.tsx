@@ -45,7 +45,7 @@ export default function ProductPage() {
     <div>
       <Row>
         <Col md={6}>
-          <img className="large" src={product.image} alt={product.name} />
+          <img className="large" style={{width: '90%'}} src={product.image} alt={product.name} />
         </Col>
         <Col md={3}>
           <ListGroup variant="flush">

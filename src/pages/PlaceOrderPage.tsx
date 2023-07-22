@@ -14,7 +14,7 @@ export default function PlaceOrderPage() {
 
   const { state, dispatch } = useContext(Store);
 
-  const { cart, userInfo } = state;
+  const { cart } = state;
 
   const round2 = (num: number) => Math.round(num * 100 + Number.EPSILON) / 100;
   cart.itemsPrice = round2(
@@ -90,12 +90,13 @@ export default function PlaceOrderPage() {
                   <ListGroup.Item key={item._id}>
                     <Row className="align-items-center">
                       <Col md={6}>
-                      <img
+                        <img
                           src={item.image}
                           alt={item.name}
                           className="img-fluid rounded thumbnail"
-                        ></img>{' '}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                          style={{maxWidth: '80px'}}
+                        />
+                        <Link style={{paddingLeft: '10px'}} to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
                       <Col md={3}>
                         <span>{item.quantity}</span>
@@ -141,11 +142,11 @@ export default function PlaceOrderPage() {
                 <ListGroup.Item>
                   <div className="d-grid">
                     <Button
-                    type="button"
-                    onClick={placeOrderHandler}
-                    disabled={cart.cartItems.length === 0 || isLoading}
+                      type="button"
+                      onClick={placeOrderHandler}
+                      disabled={cart.cartItems.length === 0 || isLoading}
                     >
-                        Place Order 
+                      Place Order
                     </Button>
                   </div>
                 </ListGroup.Item>

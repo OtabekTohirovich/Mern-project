@@ -3,7 +3,7 @@ import { UserInfo } from "./UserInfo"
 
 export type Order = {
     _id: string
-    orderItems: CartItem[]
+    orderItem: CartItem[]
     shippingAddress: ShippingAddress
     paymentMethod: string
     user: UserInfo
